@@ -1,0 +1,112 @@
+[
+  {
+    "id": "LOG001",
+    "timestamp": "2024-01-15T08:23:11Z",
+    "level": "ERROR",
+    "source_ip": "192.168.1.45",
+    "user": "admin",
+    "action": "LOGIN_FAILED",
+    "message": "Failed login attempt for user admin from IP 192.168.1.45",
+    "service": "auth-service",
+    "attempts": 5
+  },
+  {
+    "id": "LOG002",
+    "timestamp": "2024-01-15T08:25:33Z",
+    "level": "CRITICAL",
+    "source_ip": "10.0.0.99",
+    "user": "unknown",
+    "action": "BRUTE_FORCE",
+    "message": "Brute force attack detected! 50 failed logins in 2 minutes from 10.0.0.99",
+    "service": "auth-service",
+    "attempts": 50
+  },
+  {
+    "id": "LOG003",
+    "timestamp": "2024-01-15T09:01:05Z",
+    "level": "WARNING",
+    "source_ip": "172.16.0.5",
+    "user": "rajesh.kumar",
+    "action": "UNAUTHORIZED_ACCESS",
+    "message": "User rajesh.kumar attempted to access restricted admin panel",
+    "service": "web-app",
+    "attempts": 1
+  },
+  {
+    "id": "LOG004",
+    "timestamp": "2024-01-15T09:15:22Z",
+    "level": "INFO",
+    "source_ip": "192.168.1.10",
+    "user": "priya.sharma",
+    "action": "LOGIN_SUCCESS",
+    "message": "Successful login by priya.sharma",
+    "service": "auth-service",
+    "attempts": 1
+  },
+  {
+    "id": "LOG005",
+    "timestamp": "2024-01-15T10:05:47Z",
+    "level": "CRITICAL",
+    "source_ip": "185.220.101.1",
+    "user": "system",
+    "action": "SQL_INJECTION",
+    "message": "SQL injection attempt detected in login form: ' OR 1=1 --",
+    "service": "database",
+    "attempts": 3
+  },
+  {
+    "id": "LOG006",
+    "timestamp": "2024-01-15T10:30:15Z",
+    "level": "WARNING",
+    "source_ip": "192.168.5.77",
+    "user": "amit.singh",
+    "action": "PRIVILEGE_ESCALATION",
+    "message": "User amit.singh attempted privilege escalation to root",
+    "service": "os-service",
+    "attempts": 2
+  },
+  {
+    "id": "LOG007",
+    "timestamp": "2024-01-15T11:00:00Z",
+    "level": "ERROR",
+    "source_ip": "203.0.113.42",
+    "user": "unknown",
+    "action": "PORT_SCAN",
+    "message": "Port scan detected from external IP 203.0.113.42",
+    "service": "firewall",
+    "attempts": 1
+  },
+  {
+    "id": "LOG008",
+    "timestamp": "2024-01-15T11:45:30Z",
+    "level": "INFO",
+    "source_ip": "192.168.1.20",
+    "user": "neha.verma",
+    "action": "FILE_ACCESS",
+    "message": "Normal file access by neha.verma on documents folder",
+    "service": "file-system",
+    "attempts": 1
+  },
+  {
+    "id": "LOG009",
+    "timestamp": "2024-01-15T12:10:55Z",
+    "level": "CRITICAL",
+    "source_ip": "45.33.32.156",
+    "user": "unknown",
+    "action": "XSS_ATTACK",
+    "message": "XSS attack detected: <script>alert('hacked')</script> in input field",
+    "service": "web-app",
+    "attempts": 7
+  },
+  {
+    "id": "LOG010",
+    "timestamp": "2024-01-15T13:00:00Z",
+    "level": "WARNING",
+    "source_ip": "192.168.10.5",
+    "user": "ravi.gupta",
+    "action": "DATA_EXFILTRATION",
+    "message": "Unusual large data transfer by ravi.gupta - 500MB in 5 minutes",
+    "service": "network",
+    "attempts": 1
+  }
+]

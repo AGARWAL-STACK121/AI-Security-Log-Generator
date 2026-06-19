@@ -1,0 +1,10 @@
+anthropic>=0.25.0
+rich>=13.7.0
+pandas>=2.0.0
+plotly>=5.18.0
+dash>=2.14.0
+dash-bootstrap-components>=1.5.0
+python-dateutil>=2.8.2
+colorama>=0.4.6
+groq>=0.9.0
+sentence-transformers>=2.7.0
