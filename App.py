@@ -882,6 +882,12 @@ def main():
 
     app = dash.Dash(__name__, external_stylesheets=[dbc.themes.CYBORG], title="AI Security Dashboard")
     app.layout = create_layout(df)
+  server = app.server
+
+if __name__ == '__main__':
+    # Render se PORT lo, warna 8050
+    port = int(os.environ.get("PORT", 8050))
+    app.run_server(host="0.0.0.0", port=port, debug=False)
 
     # CALLBACK 1: Connect API Key
     @app.callback(
