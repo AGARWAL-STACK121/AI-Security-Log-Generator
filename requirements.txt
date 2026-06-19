@@ -8,3 +8,8 @@ python-dateutil>=2.8.2
 colorama>=0.4.6
 groq>=0.9.0
 sentence-transformers>=2.7.0
+gunicorn
+torch==2.0.1+cpu
+numpy
+python-dotenv
+reportlab
