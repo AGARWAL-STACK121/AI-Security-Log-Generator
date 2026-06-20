@@ -1080,5 +1080,31 @@ app = dash.Dash(__name__, external_stylesheets=[dbc.themes.CYBORG], title="AI Se
 
 df = process_logs(load_all_logs())
 app.layout = create_layout(df)
-
-server = app.server
+@app.callback(
+    Output("api-status-msg", "children"),
+    Input("btn-connect-api", "n_clicks"),
+    State("api-key-input", "value"),
+    prevent_initial_call=True
+)
+def update_api_status(n_clicks, api_key):
+    # --- YAHAN ADD KARO ---
+    print(f"DEBUG: Button pressed! n_clicks={n_clicks}") 
+    # ----------------------
+    
+    if n_clicks > 0:
+        if api_key and api_key.startswith("gsk_"):
+            try:
+                from groq import Groq
+                temp_client = Groq(api_key=api_key)
+                temp_client.models.list()
+                
+                global groq_client, LLM_ENABLED
+                groq_client = temp_client
+                LLM_ENABLED = True
+                return html.Span("✅ Groq AI Connected", style={"color":"#44BB44","fontSize":"13px","fontWeight":"bold"})
+            except Exception as e:
+                return html.Span(f"❌ Connection Failed: {str(e)[:30]}", style={"color":"#FF4444","fontSize":"13px"})
+        else:
+            return html.Span("⚠️ Enter a valid key starting with 'gsk_'", style={"color":"#FF8800","fontSize":"13px"})
+    return dash.no_update
+  server = app.server
