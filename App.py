@@ -1076,26 +1076,9 @@ def main():
             create_world_map(df), ioc_display
         )
 
-def main():
-    print("\n🚀 Dashboard is running!")
-    print("🌐 Dashboard Started")
+app = dash.Dash(__name__, external_stylesheets=[dbc.themes.CYBORG], title="AI Security Dashboard")
 
-    # 🔥 APP MUST BE CREATED FIRST
-    app = dash.Dash(__name__, external_stylesheets=[dbc.themes.CYBORG], title="AI Security Dashboard")
+df = process_logs(load_all_logs())
+app.layout = create_layout(df)
 
-    df = process_logs(load_all_logs())  # agar df yahin banana hai
-
-    app.layout = create_layout(df)
-    server = app.server
-
-    port = int(os.environ.get("PORT", 8050))
-
-    app.run(
-        host="0.0.0.0",
-        port=port,
-        debug=False
-    )
-
-
-if __name__ == "__main__":
-    main()
+server = app.server
