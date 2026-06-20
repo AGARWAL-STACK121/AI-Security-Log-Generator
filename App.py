@@ -1076,17 +1076,18 @@ def main():
             create_world_map(df), ioc_display
         )
 
+def main():
     print("\n🚀 Dashboard is running!")
     print("🌐 Dashboard Started")
 
     port = int(os.environ.get("PORT", 8050))
-    app.run_server(
+
+    app.run(
         host="0.0.0.0",
         port=port,
         debug=False
-)
+    )
 
 if __name__ == "__main__":
     main()
-  
     
