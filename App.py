@@ -32,20 +32,28 @@ import dash_bootstrap_components as dbc
 import pandas as pd
 from mitre_knowledge_base import get_all_techniques
 
-print("🔧 Loading RAG components...")
+import os
+
+embedding_model = None
+EMBEDDINGS_ENABLED = False
 
 try:
     from sentence_transformers import SentenceTransformer
-    embedding_model = SentenceTransformer("all-MiniLM-L6-v2")
-    EMBEDDINGS_ENABLED = True
-    print("✅ Sentence Transformer loaded!")
+
+    if os.environ.get("RENDER") == "true":
+        print("⚠️ Render detected → embeddings disabled")
+    else:
+        embedding_model = SentenceTransformer("all-MiniLM-L6-v2")
+        EMBEDDINGS_ENABLED = True
+        print("✅ Sentence Transformer loaded!")
+
 except Exception as e:
+    embedding_model = None
     EMBEDDINGS_ENABLED = False
-    print(f"⚠️  Sentence Transformer not available: {e}")
+    print(f"⚠️ Embeddings disabled: {e}")
 
 groq_client = None
 LLM_ENABLED = False
-
 def connect_groq(api_key: str) -> bool:
     global groq_client, LLM_ENABLED
     try:
