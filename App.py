@@ -1111,4 +1111,6 @@ def update_api_status(n_clicks, api_key):
 if __name__ == '__main__':
     print("Application is starting...")
     app.run_server(debug=True)
+
+
 server = app.server
