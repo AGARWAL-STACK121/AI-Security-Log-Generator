@@ -1107,4 +1107,8 @@ def update_api_status(n_clicks, api_key):
         else:
             return html.Span("⚠️ Enter a valid key starting with 'gsk_'", style={"color":"#FF8800","fontSize":"13px"})
     return dash.no_update
-  server = app.server
+  # Isse pata chalega ki kya server callback ko register kar raha hai
+if __name__ == '__main__':
+    print("Application is starting...")
+    app.run_server(debug=True)
+server = app.server
